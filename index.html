@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US22750: Comprehensive Readiness Check (Pages 1-12)</title>
+    <style>
+        :root {
+            --primary: #003366;
+            --secondary: #f0f4f8;
+            --accent: #007bff;
+            --success: #28a745;
+            --error: #dc3545;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f9f9f9; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .header { text-align: center; border-bottom: 4px solid var(--primary); margin-bottom: 25px; padding-bottom: 10px; }
+        .page { display: none; }
+        .page.active { display: block; }
+        .topic-header { background: var(--primary); color: white; padding: 10px 15px; border-radius: 5px; margin: 20px 0; }
+        .question-block { margin-bottom: 20px; padding: 15px; border-bottom: 1px solid #eee; }
+        .q-text { font-weight: 600; margin-bottom: 10px; display: block; }
+        .options label { display: block; margin: 8px 0; cursor: pointer; font-weight: normal; }
+        input[type="text"], textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 5px; }
+        .nav-buttons { display: flex; justify-content: space-between; margin-top: 30px; border-top: 2px solid #eee; padding-top: 20px; }
+        button { padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .btn-next { background: var(--accent); color: white; }
+        .btn-prev { background: #6c757d; color: white; }
+        .btn-submit { background: var(--success); color: white; }
+        #results, #summary-record { display: none; margin-top: 30px; padding: 25px; border: 3px solid var(--primary); background: #f0f8ff; }
+        .feedback { font-size: 0.9em; margin-top: 5px; display: block; }
+        .correct { color: var(--success); }
+        .incorrect { color: var(--error); }
+        .progress-bar { height: 10px; background: #e0e0e0; border-radius: 5px; margin-bottom: 20px; }
+        .progress-fill { height: 100%; background: var(--accent); border-radius: 5px; width: 0%; transition: 0.5s; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Unit Standard 22750 Assessment</h1>
+        <p>Write a crafted text using researched material in English for an academic purpose (Level 4)</p>
+        <input type="text" id="studentName" placeholder="ENTER FULL NAME HERE" style="width: 300px; text-align: center;">
+    </div>
+
+    <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+
+    <form id="quizForm">
+        <div class="page active" id="p1">
+            <div class="topic-header">Topic 1: Standard Overview & Explanatory Notes (Pages 1-3)</div>
+            
+            <div class="question-block">
+                <span class="q-text">1. How many credits is Unit Standard 22750 worth?</span>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="4"> 4 credits</label>
+                    <label><input type="radio" name="q1" value="6"> 6 credits</label>
+                    <label><input type="radio" name="q1" value="10"> 10 credits</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">2. What is the minimum word count required for the report?</span>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="500"> 500 words</label>
+                    <label><input type="radio" name="q2" value="800"> 800 words</label>
+                    <label><input type="radio" name="q2" value="1000"> 1000 words</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">3. True or False: Inaccuracies in surface features (grammar/spelling) are allowed as long as they do not interfere with meaning.</span>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="true"> True</label>
+                    <label><input type="radio" name="q3" value="false"> False</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">4. Which of the following can a teacher NOT do when providing feedback?</span>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="advice"> Advise that work needs further development</label>
+                    <label><input type="radio" name="q4" value="correct"> Correct spelling and punctuation errors for the student</label>
+                    <label><input type="radio" name="q4" value="suggest"> Suggest language or structure improvements</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">5. What must be attached to the completed assessment regarding research?</span>
+                <input type="text" name="q5" placeholder="Your answer...">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">6. All resource material used for this assessment must be in which language?</span>
+                <input type="text" name="q6" placeholder="Your answer...">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">7. Criteria 1.1 states the ___________ question must be addressed appropriately.</span>
+                <input type="text" name="q7" placeholder="Fill in the blank...">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">8. Is this an NZQA exemplar provided on page 6?</span>
+                <div class="options">
+                    <label><input type="radio" name="q8" value="yes"> Yes</label>
+                    <label><input type="radio" name="q8" value="no"> No (Not an NZQA exemplar)</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">9. On which page of the booklet can you find the Table of Contents?</span>
+                <input type="text" name="q9">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">10. What level is this Unit Standard?</span>
+                <input type="text" name="q10">
+            </div>
+        </div>
+
+        <div class="page" id="p2">
+            <div class="topic-header">Topic 2: Task Details & Managing Time (Pages 4-7)</div>
+            
+            <div class="question-block">
+                <span class="q-text">11. What is the overarching theme for this research task?</span>
+                <div class="options">
+                    <label><input type="radio" name="q11" value="plastic"> Plastic Pollution</label>
+                    <label><input type="radio" name="q11" value="climate"> Climate Change</label>
+                    <label><input type="radio" name="q11" value="energy"> Renewable Energy</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">12. You are writing your report for what type of publication?</span>
+                <input type="text" name="q12" placeholder="e.g. Scientific _______">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">13. How many pictures or graphics are required/allowed in your report?</span>
+                <div class="options">
+                    <label><input type="radio" name="q13" value="0"> None</label>
+                    <label><input type="radio" name="q13" value="1-2"> 1-2</label>
+                    <label><input type="radio" name="q13" value="5"> At least 5</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">14. What does the term "Posh" writing refer to in the resource?</span>
+                <input type="text" name="q14" placeholder="Describe the style...">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">15. What are you required to do to "expand" on information (as per page 4)?</span>
+                <div class="options">
+                    <label><input type="radio" name="q15" value="words"> Use phrases like "In other words..."</label>
+                    <label><input type="radio" name="q15" value="delete"> Delete unnecessary details</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">16. What tool is suggested for drawing out thoughts while researching (Page 5)?</span>
+                <input type="text" name="q16" placeholder="Google _______">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">17. How many "Stop Checkpoints" are mentioned in the time management section?</span>
+                <input type="text" name="q17">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">18. What happens if you do not meet a deadline?</span>
+                <div class="options">
+                    <label><input type="radio" name="q18" value="fail"> Automatic fail</label>
+                    <label><input type="radio" name="q18" value="feedback"> You might not receive feedback</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">19. Checkpoint 1 requires you to read pages ____ to ____.</span>
+                <input type="text" name="q19">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">20. What is Step 1 in "The Steps You'll Take"?</span>
+                <textarea name="q20"></textarea>
+            </div>
+        </div>
+
+        <div class="page" id="p3">
+            <div class="topic-header">Topic 3: Format - Keeping it Professional (Pages 8-9)</div>
+
+            <div class="question-block">
+                <span class="q-text">21. Which two fonts are recommended for the report?</span>
+                <input type="text" name="q21" placeholder="Font 1 and Font 2">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">22. What is the recommended point size for the body text?</span>
+                <div class="options">
+                    <label><input type="radio" name="q22" value="10"> 10pt</label>
+                    <label><input type="radio" name="q22" value="11-12"> 11 or 12pt</label>
+                    <label><input type="radio" name="q22" value="14"> 14pt</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">23. What should the font size for a Main Heading be?</span>
+                <input type="text" name="q23">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">24. True or False: You should never underline anything in a report unless it's a book title.</span>
+                <div class="options">
+                    <label><input type="radio" name="q24" value="true"> True</label>
+                    <label><input type="radio" name="q24" value="false"> False</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">25. What is the rule for "Pen Colour" in academic reports?</span>
+                <input type="text" name="q25">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">26. When is it appropriate to use Centered Alignment?</span>
+                <input type="text" name="q26">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">27. Where should subheadings be aligned?</span>
+                <div class="options">
+                    <label><input type="radio" name="q27" value="left"> Left</label>
+                    <label><input type="radio" name="q27" value="center"> Center</label>
+                    <label><input type="radio" name="q27" value="right"> Right</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">28. Can you use "Hot Pink" or "Lime Green" for headings?</span>
+                <div class="options">
+                    <label><input type="radio" name="q28" value="yes"> Yes</label>
+                    <label><input type="radio" name="q28" value="no"> No (Navy blue is better)</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">29. What is the rule for "Highlighting" text?</span>
+                <input type="text" name="q29" placeholder="Never ever!">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">30. Captions under graphics should be what alignment?</span>
+                <input type="text" name="q30">
+            </div>
+        </div>
+
+        <div class="page" id="p4">
+            <div class="topic-header">Topic 4: Academic Language & Tone (Page 10)</div>
+
+            <div class="question-block">
+                <span class="q-text">31. The resource says to imagine you are a _______ when writing facts.</span>
+                <input type="text" name="q31">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">32. Which personal pronouns must you avoid?</span>
+                <input type="text" name="q32" placeholder="e.g. I, Me...">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">33. Academic writing is done in which "person"?</span>
+                <div class="options">
+                    <label><input type="radio" name="q33" value="1st"> 1st Person</label>
+                    <label><input type="radio" name="q33" value="3rd"> 3rd Person</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">34. Are you allowed to show emotions (e.g. "disgusting", "unbelievable")?</span>
+                <div class="options">
+                    <label><input type="radio" name="q34" value="yes"> Yes</label>
+                    <label><input type="radio" name="q34" value="no"> No</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">35. Instead of "I believe", what phrase is suggested?</span>
+                <textarea name="q35"></textarea>
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">36. What is the definition of "Hedging words"?</span>
+                <input type="text" name="q36">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">37. Give an example of a "hedging" word.</span>
+                <input type="text" name="q37">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">38. Are contractions (e.g. can't, won't) allowed?</span>
+                <div class="options">
+                    <label><input type="radio" name="q38" value="yes"> Yes</label>
+                    <label><input type="radio" name="q38" value="no"> No (Use 'cannot', 'will not')</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">39. If you use an abbreviation, when must you write it out in full?</span>
+                <textarea name="q39"></textarea>
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">40. Slang language (e.g. "bro", "cool") is only for...</span>
+                <input type="text" name="q40" placeholder="e.g. Your mates">
+            </div>
+        </div>
+
+        <div class="page" id="p5">
+            <div class="topic-header">Topic 5: Connectives & Punctuation (Pages 11-12)</div>
+
+            <div class="question-block">
+                <span class="q-text">41. What is the main purpose of connectives?</span>
+                <input type="text" name="q41">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">42. How do connectives affect the sound of your writing?</span>
+                <input type="text" name="q42">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">43. What is the tip for reading your work to check for full stops?</span>
+                <textarea name="q43"></textarea>
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">44. Should you take a breath when you reach a comma?</span>
+                <div class="options">
+                    <label><input type="radio" name="q44" value="yes"> Yes</label>
+                    <label><input type="radio" name="q44" value="no"> No</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">45. Is it better to keep sentences long or short for academic clarity?</span>
+                <input type="text" name="q45">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">46. What does the resource say about exclamation marks?</span>
+                <input type="text" name="q46">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">47. Commas are used to divide items in a list, but NOT between...</span>
+                <input type="text" name="q47">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">48. A comma should follow a ________ that begins a sentence.</span>
+                <input type="text" name="q48">
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">49. Summarize the role of an apostrophe in formal writing.</span>
+                <textarea name="q49"></textarea>
+            </div>
+
+            <div class="question-block">
+                <span class="q-text">50. True or False: Professional writers read their work aloud to hear how it sounds.</span>
+                <div class="options">
+                    <label><input type="radio" name="q50" value="true"> True</label>
+                    <label><input type="radio" name="q50" value="false"> False</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <button type="button" class="btn-prev" id="prevBtn" onclick="changePage(-1)">Previous</button>
+            <button type="button" class="btn-next" id="nextBtn" onclick="changePage(1)">Next</button>
+            <button type="button" class="btn-submit" id="submitBtn" onclick="calculateScore()" style="display:none;">Submit Assessment</button>
+        </div>
+    </form>
+
+    <div id="results">
+        <h2 id="finalScoreText"></h2>
+        <div id="detailedFeedback"></div>
+    </div>
+
+    <div id="summary-record">
+        <h3>Official Evidence Record</h3>
+        <p><strong>Student Name:</strong> <span id="recName"></span></p>
+        <p><strong>Standard:</strong> US22750 Readiness Check</p>
+        <p><strong>Date:</strong> <span id="recDate"></span></p>
+        <p><strong>Raw Score:</strong> <span id="recScore"></span> / 50</p>
+        <hr>
+        <p><em>Take a screenshot of this section to upload to Google Classroom as evidence of your preparation for the standard.</em></p>
+    </div>
+</div>
+
+<script>
+    let currentPage = 1;
+    const totalPages = 5;
+    const correctAnswers = {
+        q1: "6", q2: "800", q3: "true", q4: "correct", q8: "no", 
+        q11: "climate", q13: "1-2", q18: "feedback", q22: "11-12",
+        q24: "true", q27: "left", q28: "no", q33: "3rd", q34: "no",
+        q38: "no", q44: "no", q50: "true"
+    };
+
+    function changePage(step) {
+        document.getElementById(`p${currentPage}`).classList.remove('active');
+        currentPage += step;
+        document.getElementById(`p${currentPage}`).classList.add('active');
+        
+        document.getElementById('prevBtn').disabled = (currentPage === 1);
+        if (currentPage === totalPages) {
+            document.getElementById('nextBtn').style.display = 'none';
+            document.getElementById('submitBtn').style.display = 'block';
+        } else {
+            document.getElementById('nextBtn').style.display = 'block';
+            document.getElementById('submitBtn').style.display = 'none';
+        }
+
+        document.getElementById('progress').style.width = ((currentPage / totalPages) * 100) + "%";
+        window.scrollTo(0,0);
+    }
+
+    function calculateScore() {
+        const name = document.getElementById('studentName').value;
+        if (!name) { alert("Please enter your name."); return; }
+
+        let score = 0;
+        const form = document.getElementById('quizForm');
+        const formData = new FormData(form);
+
+        // Score multiple choice
+        for (let key in correctAnswers) {
+            if (formData.get(key) === correctAnswers[key]) score++;
+        }
+
+        // Score text inputs (Simple check for content existence for demo)
+        const textInputs = form.querySelectorAll('input[type="text"], textarea');
+        textInputs.forEach(input => {
+            if (input.name && !correctAnswers[input.name] && input.value.trim().length > 2) {
+                score++; 
+            }
+        });
+
+        // Display results
+        document.getElementById('results').style.display = 'block';
+        document.getElementById('finalScoreText').innerText = `Score: ${score} / 50`;
+        
+        // Detailed feedback logic (summary)
+        let feedbackHTML = "<h4>Review Checklist:</h4><ul>";
+        feedbackHTML += score >= 40 ? "<li>Excellent! You are ready for the task.</li>" : "<li>You should review the pages where you missed items.</li>";
+        feedbackHTML += "</ul>";
+        document.getElementById('detailedFeedback').innerHTML = feedbackHTML;
+
+        // Final Record
+        document.getElementById('summary-record').style.display = 'block';
+        document.getElementById('recName').innerText = name;
+        document.getElementById('recDate').innerText = new Date().toLocaleDateString();
+        document.getElementById('recScore').innerText = score;
+        
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+</script>
+
+</body>
+</html>
